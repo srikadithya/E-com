@@ -1,0 +1,35 @@
+.product-card {
+  border: 2px solid #007bff;
+  padding: 15px;
+  border-radius: 10px;
+  width: 260px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.04);
+  background: #f3f8ff;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.buy-btn {
+  padding: 10px 20px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buy-btn:hover {
+  background: #005bbf;
+}

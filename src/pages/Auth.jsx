@@ -13,6 +13,7 @@ function Auth() {
 
   useEffect(() => {
     if (route === "authenticated") {
+      localStorage.setItem("auth", "true"); // <-- Set auth flag
       const groups =
         user?.signInUserSession?.idToken?.payload["cognito:groups"] || [];
 
@@ -23,7 +24,6 @@ function Auth() {
         console.log("USER:", user);
         console.log("ID TOKEN:", user?.signInUserSession?.idToken?.payload);
         console.log("GROUPS:", user?.signInUserSession?.idToken?.payload["cognito:groups"]);
-
       }
     }
   }, [route, user, navigate]);
@@ -37,7 +37,6 @@ function Auth() {
             return (
               <>
                 <Authenticator.SignUp.FormFields />
-
                 {/* Address field */}
                 <div className="amplify-field">
                   <label htmlFor="address">Address</label>
