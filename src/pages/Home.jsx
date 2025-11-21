@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import axios from "axios";
 
 const categories = [
   { name: "ElectricalAppliance", img: "https://static-assets.business.amazon.com/assets/in/24th-jan/705_Website_Blog_Appliances_2880x960.jpg.transform/2880x960/image.jpg" },
@@ -13,9 +14,26 @@ const categories = [
 const Home = () => {
   const navigate = useNavigate();
 
-  const goToCategory = (cat) => {
-    navigate(`/category/${cat}`);
-  };
+  const goToCategory = (category) => {
+  axios.post(
+    "https://4fk28ydw23.execute-api.us-east-1.amazonaws.com/payment-stage/get-products",
+    { category: category }
+  )
+  .then((response) => {
+    // Parse the JSON string in the body
+    const products = JSON.parse(response.data.body);
+
+    // Log the products after parsing
+    console.log("Products for category", category, ":", products);
+
+    // Navigate to category page and pass products
+    navigate(`/category/${category}`, { state: { products } });
+  })
+  .catch((error) => {
+    console.error("Error fetching products:", error);
+  });
+};
+
 
   return (
     <div className="home-container">

@@ -1,0 +1,17 @@
+.products-grid .product-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 6px;
+}
+
+.product-card {
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease; 
+}
+
+.product-card:hover {
+    border-color: #007bff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transform: translateY(-2px); 
+}
